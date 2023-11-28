@@ -44,6 +44,7 @@ class _HistoryState extends State<History> {
   Widget build(BuildContext context) {
     return Scaffold(
       appBar: AppBar(
+        backgroundColor: Color.fromARGB(255, 13, 213, 130),
         title: const Text('Booking History'),
       ),
       body: StreamBuilder<Iterable<CloudBooking>>(
@@ -88,32 +89,34 @@ class _HistoryState extends State<History> {
                             child: Column(
                               crossAxisAlignment: CrossAxisAlignment.start,
                               children: [
-                                Row(
+                                const Row(
                                   mainAxisAlignment:
                                       MainAxisAlignment.spaceBetween,
                                   children: [
                                     Text(
-                                      date1(departureFlight.depDate),
-                                      style: const TextStyle(
-                                        fontSize: 17,
-                                        fontWeight: FontWeight.bold,
-                                      ),
+                                      "Referance:",
+                                      style: TextStyle(fontSize: 24),
                                     ),
-                                    if (booking.returnFlight != 'none')
-                                      Text(
-                                        date1(returnFlight!.depDate),
-                                        style: const TextStyle(
-                                          fontSize: 17,
-                                          fontWeight: FontWeight.bold,
-                                        ),
-                                      ),
+                                    Text(
+                                      "Booking Time",
+                                      style: TextStyle(fontSize: 24),
+                                    ),
                                   ],
                                 ),
-                                const Text(
-                                  "Referance:",
-                                  style: TextStyle(fontSize: 24),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Text(booking.documentId),
+                                    Row(
+                                      children: [
+                                        Text(date1(booking.bookingTime)),
+                                        Text(
+                                            ' , ${_flightsService.formatTime(booking.bookingTime)}'),
+                                      ],
+                                    ),
+                                  ],
                                 ),
-                                Text(booking.documentId),
                                 const SizedBox(
                                   child: Divider(
                                     color: Colors.black,
@@ -134,7 +137,7 @@ class _HistoryState extends State<History> {
                                           const SizedBox(
                                             width: 5,
                                           ),
-                                          Container(
+                                          SizedBox(
                                             height: 20,
                                             child: Image.asset(
                                                 'images/flight-Icon.png'),
@@ -181,7 +184,7 @@ class _HistoryState extends State<History> {
                                             const SizedBox(
                                               width: 5,
                                             ),
-                                            Container(
+                                            SizedBox(
                                               height: 20,
                                               child: Image.asset(
                                                   'images/flight-Icon.png'),
@@ -216,6 +219,58 @@ class _HistoryState extends State<History> {
                                           ],
                                         )
                                       ]),
+                                  ],
+                                ),
+                                const SizedBox(
+                                  child: Divider(
+                                    color: Colors.black,
+                                  ),
+                                ),
+                                Row(
+                                  mainAxisAlignment:
+                                      MainAxisAlignment.spaceBetween,
+                                  children: [
+                                    Row(
+                                      children: [
+                                        const Text("Price: ",
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black87,
+                                            )),
+                                        Text(
+                                          "${booking.bookingPrice}",
+                                          style: const TextStyle(fontSize: 15),
+                                        )
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Text("Passenger: ",
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black87,
+                                            )),
+                                        Text("${booking.numOfSeats}",
+                                            style:
+                                                const TextStyle(fontSize: 15))
+                                      ],
+                                    ),
+                                    Row(
+                                      children: [
+                                        const Text("class: ",
+                                            style: TextStyle(
+                                              fontSize: 16.0,
+                                              fontWeight: FontWeight.bold,
+                                              color: Colors.black87,
+                                            )),
+                                        Text(
+                                          booking.bookingClass,
+                                          style: const TextStyle(fontSize: 15),
+                                        )
+                                      ],
+                                    ),
                                   ],
                                 )
                               ],

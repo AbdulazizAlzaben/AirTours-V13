@@ -138,6 +138,7 @@ class _CreditcardState extends State<Creditcard> {
   Widget build(BuildContext context) {
     return Scaffold(
         appBar: AppBar(
+          backgroundColor: const Color.fromARGB(255, 13, 213, 130),
           actions: [
             Expanded(
               child: Row(
@@ -348,12 +349,12 @@ class _CreditcardState extends State<Creditcard> {
                               padding: const EdgeInsets.all(15),
                               width: double.infinity,
                               decoration: BoxDecoration(
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        blurRadius: 2, offset: Offset(0, 0))
-                                  ],
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.blue),
+                                boxShadow: const [
+                                  BoxShadow(blurRadius: 2, offset: Offset(0, 0))
+                                ],
+                                borderRadius: BorderRadius.circular(20),
+                                color: const Color.fromARGB(255, 13, 213, 130),
+                              ),
                               child: const Center(
                                   child: Text(
                                 "Cancel",
@@ -386,12 +387,12 @@ class _CreditcardState extends State<Creditcard> {
                               padding: const EdgeInsets.all(15),
                               width: double.infinity,
                               decoration: BoxDecoration(
-                                  boxShadow: const [
-                                    BoxShadow(
-                                        blurRadius: 2, offset: Offset(0, 0))
-                                  ],
-                                  borderRadius: BorderRadius.circular(20),
-                                  color: Colors.blue),
+                                boxShadow: const [
+                                  BoxShadow(blurRadius: 2, offset: Offset(0, 0))
+                                ],
+                                borderRadius: BorderRadius.circular(20),
+                                color: const Color.fromARGB(255, 13, 213, 130),
+                              ),
                               child: const Center(
                                   child: Text(
                                 "Confirm Payment",
@@ -413,11 +414,12 @@ class _CreditcardState extends State<Creditcard> {
                         padding: const EdgeInsets.all(15),
                         width: double.infinity,
                         decoration: BoxDecoration(
-                            boxShadow: const [
-                              BoxShadow(blurRadius: 2, offset: Offset(0, 0))
-                            ],
-                            borderRadius: BorderRadius.circular(20),
-                            color: Colors.blue),
+                          boxShadow: const [
+                            BoxShadow(blurRadius: 2, offset: Offset(0, 0))
+                          ],
+                          borderRadius: BorderRadius.circular(20),
+                          color: const Color.fromARGB(255, 13, 213, 130),
+                        ),
                         child: const Center(
                             child: Text(
                           "Discount Using Balance",

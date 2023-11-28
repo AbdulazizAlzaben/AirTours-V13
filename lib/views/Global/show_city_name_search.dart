@@ -1,11 +1,11 @@
 import 'package:flutter/material.dart';
 
 import '../Global/global_var.dart';
+import '../Round-Trip/round_trip.dart';
 import 'flight_class_for_search.dart';
 
 class FromSearch extends StatefulWidget {
   final int fromOrTo;
-
   const FromSearch({
     super.key,
     required this.fromOrTo,
@@ -22,10 +22,12 @@ class _FromSearchState extends State<FromSearch> {
   // ];
 
   List<flightInformation> _filter = [];
+  // List<flightInformation> _filter2 = [];
   void initState() {
     super.initState();
     setState(() {
       _filter = flightNameTest;
+      // _filter2 = flightNameTestRoundTrip;
     });
   }
 
@@ -38,14 +40,35 @@ class _FromSearchState extends State<FromSearch> {
   // }
 
   // oredred correctly
+
+  // updateList(String value) {
+  //   setState(() {
+  //     _filter = flightNameTest
+  //         .where((element) =>
+  //             element.cityName.toLowerCase().startsWith(value.toLowerCase()))
+  //         .toList();
+  //   });
+  // }
+
   updateList(String value) {
     setState(() {
       _filter = flightNameTest
           .where((element) =>
               element.cityName.toLowerCase().startsWith(value.toLowerCase()))
+          .where((element) => element.cityName != cityNameDel)
           .toList();
     });
   }
+
+  // updateList2(String value) {
+  //   setState(() {
+  //     _filter2 = flightNameTestRoundTrip
+  //         .where((element) =>
+  //             element.cityName.toLowerCase().startsWith(value.toLowerCase()))
+  //         .where((element) => element.cityName != cityNameDel3)
+  //         .toList();
+  //   });
+  // }
 
   @override
   Widget build(BuildContext context) {
@@ -55,7 +78,9 @@ class _FromSearchState extends State<FromSearch> {
           crossAxisAlignment: CrossAxisAlignment.stretch,
           children: [
             GestureDetector(
-              onTap: () => Navigator.pop(context),
+              onTap: () {
+                Navigator.pop(context);
+              },
               child: const Row(
                 children: [
                   SizedBox(
